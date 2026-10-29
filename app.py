@@ -11,7 +11,16 @@ st.write(
     "Determine optimal seating (Left vs. Right) to minimize direct sun exposure"
     " on transit routes."
 )
+# --- APP PASSWORD PROTECTION ---
+# Change "my_secret_pin" to whatever password you want to use
+APP_PASSWORD = "8749"
 
+password_input = st.text_input("🔒 Enter App Password to Unlock", type="password")
+if password_input != APP_PASSWORD:
+  st.warning(
+      "Please enter the correct password to access Shade Seeker."
+  )
+  st.stop()
 # Securely load API Key from Streamlit Secrets (with sidebar fallback for local testing)
 api_key = ""
 try:
